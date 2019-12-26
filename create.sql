@@ -16,7 +16,7 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (username, phonenumber, cellProvider)
-  VALUES ('Rachel', '6268183111', 'Verizon'), ('Jeffrey', '6268182618', 'Verizon'), ('Chris', '5109184345', 'Verizon');
+  VALUES ('Rachel', '6268183111', 'Verizon'), ('Jeffrey', '6268182618', 'Verizon'), ('Chris', '5109184345', 'Verizon'), ('Steven', '8587317533', 'Verizon'), ('Lyanna', '4086270411', 'T-Mobile'), ('Olympia', '8586499868', 'T-Mobile');
 
 CREATE TABLE facts (
   factId serial PRIMARY KEY NOT NULL,

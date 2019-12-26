@@ -19,6 +19,8 @@ BEGIN
         facts
         INNER JOIN texts ON texts.factid = facts.factid
         INNER JOIN users ON texts.userid = theUserID)
+  ORDER BY
+    random()
   LIMIT 1;
   INSERT INTO texts (factID, userid)
   VALUES (validFactID, theUserID);
