@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+  
+  
+</head>
+<body>
+user
+  <input type="text" id="user"> <br>
+
+  phone number
+  <input type="text" id="phone"> <br>
+
+  phone provider
+  <select id="provider" name="">
+    <option value="AT&T"> att</option>
+    <option value="T-Mobile"> tmob</option>
+    <option value="Sprint"> sprint </option>
+    <option value="Verizon"> verizon</option>
+  </select>
+
+  <button id="submit">submit</button>
+  <script>
+
+    const byId = document.getElementById.bind(document);
+
+    const userInput = byId('user');
+    const phoneInput = byId('phone');
+
+    const providerInput =  byId('provider');
+
+    $('#submit').click(() => {
+      const inputData = {
+        userName: userInput.value,
+        phoneNumber: phoneInput.value,
+        provider: providerInput.value
+      }
+
+      console.log(inputData)
+      $.ajax({
+        url: "http://localhost:8081/register",
+        type: "POST",
+        data: JSON.stringify(inputData),
+        complete: data  => {
+          console.log(JSON.parse(data.responseText))
+
+        },
+        contentType: "application/json"
+
+      });
+
+          
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>
