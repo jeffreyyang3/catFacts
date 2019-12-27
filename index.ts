@@ -72,7 +72,7 @@ const getMailOptions = (
     from: "jeffreyhasmail@gmail.com",
     to: `${phoneNumber}@${providerToEmail[cellProvider]}`,
     subject: "Cat facts",
-    html: text
+    html: `<h1>${text}</h1>`
   };
 };
 interface factQueryResult {
@@ -113,8 +113,8 @@ const sendTexts = async () => {
   const queryResult: userQueryResult = await pool.query("select * from users");
   const users = queryResult.rows;
   console.log(users);
-  const factResult = await pool.query("select getNewFact(1)");
-  console.log(factResult.rows);
+  // const factResult = await pool.query("select getNewFact(1)");
+  //console.log(factResult.rows);
   for await (const user of users) {
     const { username, phonenumber, cellprovider, userid } = user;
     // transporter.sendMail(
@@ -140,9 +140,9 @@ const sendTexts = async () => {
 };
 
 sendTexts();
-app.listen(port, () => {
-  console.log(`listening on ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`listening on ${port}`);
+// });
 // setInterval(() => {
 //   transporter.sendMail(mailOptions, (err, info) => {
 //     if (err) console.log(err);
