@@ -7,12 +7,12 @@ with open(filepath) as fp:
     line = fp.readline()
     while line:
         if not re.match(r'^\s*$', line):
-            out.append(line.rstrip())
+            out.append(line.rstrip().replace("'", "''"))
         line = fp.readline()
 
 try:
     connection = psycopg2.connect(
-        user="me",
+        user="postgres",
         password="cool",
         host="localhost",
         port=5432,
